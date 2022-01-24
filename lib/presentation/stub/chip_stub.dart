@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fooderlich/presentation/Theme/fooderlich_theme.dart';
+import '../Theme/fooderlich_theme.dart';
 
 final List<Widget> chipStubs = <Widget>[
   Chip(

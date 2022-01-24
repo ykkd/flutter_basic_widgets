@@ -25,7 +25,7 @@ class Card3 extends StatelessWidget {
                   borderRadius: BorderRadius.all(edgeRadius)),
             ),
             Container(
-              padding: EdgeInsets.all(16),
+              padding: const EdgeInsets.all(16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
