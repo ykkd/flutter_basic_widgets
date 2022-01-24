@@ -3,12 +3,10 @@ import '../Theme/fooderlich_theme.dart';
 import '../../presentation/home/home.dart';
 
 void main() {
-  // 1
   runApp(const Fooderlich());
 }
 
 class Fooderlich extends StatelessWidget {
-  // 2
   const Fooderlich({Key? key}) : super(key: key);
 
   @override
