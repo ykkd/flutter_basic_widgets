@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../Theme/fooderlich_theme.dart';
 import '../circle_image/circle_image.dart';
 
-class AuthorCard extends StatelessWidget {
+class AuthorCard extends StatefulWidget {
   final String authorName;
   final String title;
   final ImageProvider imageProvider;
@@ -15,6 +15,13 @@ class AuthorCard extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  State<AuthorCard> createState() => _AuthorCardState();
+}
+
+class _AuthorCardState extends State<AuthorCard> {
+  bool _isFarorited = false;
+
+  @override
   Widget build(BuildContext context) {
     return Container(
         padding: const EdgeInsets.all(16),
@@ -23,27 +30,27 @@ class AuthorCard extends StatelessWidget {
           children: [
             Row(
               children: [
-                CircleImage(imageProvider, imageRadius: 28),
+                CircleImage(widget.imageProvider, imageRadius: 28),
                 const SizedBox(width: 8),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(authorName,
+                    Text(widget.authorName,
                         style: FooderlichTheme.lightTextTheme.headline2),
-                    Text(title, style: FooderlichTheme.lightTextTheme.headline3)
+                    Text(widget.title,
+                        style: FooderlichTheme.lightTextTheme.headline3)
                   ],
                 ),
               ],
             ),
             IconButton(
-              icon: const Icon(Icons.favorite_border),
+              icon: Icon(_isFarorited ? Icons.favorite : Icons.favorite_border),
               iconSize: 30,
-              color: Colors.grey[400],
+              color: Colors.red[400],
               onPressed: () {
-                const snackBar = SnackBar(content: Text('Press Favorite'));
-
-                // ignore: deprecated_member_use
-                Scaffold.of(context).showSnackBar(snackBar);
+                setState(() {
+                  _isFarorited = !_isFarorited;
+                });
               },
             ),
           ],
